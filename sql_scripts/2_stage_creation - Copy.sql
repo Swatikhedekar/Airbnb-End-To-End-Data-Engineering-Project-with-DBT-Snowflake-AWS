@@ -14,25 +14,25 @@ URL = 's3://snowbucket-sk/source/';
 
 SHOW STAGES;
 -- insert data from aws s3 to snowflake
-COPY INTO AIRBNB_DB.STAGING_SCHEMA.BOOKINGS
+COPY INTO AIRBNB_DB.STAGING.BOOKINGS
 FROM
     @snowstage FILES =('bookings.csv') CREDENTIALS =(
-        aws_key_id = '***',
-        aws_secret_key = '******'
+        aws_key_id = '#####',
+        aws_secret_key = '####'
         );
 
-COPY INTO AIRBNB_DB.STAGING_SCHEMA.HOSTS
+COPY INTO AIRBNB_DB.STAGING.HOSTS
 FROM
     @snowstage FILES =('hosts.csv') CREDENTIALS =(
-        aws_key_id = '***',
-        aws_secret_key = '****'
+        aws_key_id = '####',
+        aws_secret_key = '####'
         );
         
-COPY INTO AIRBNB_DB.STAGING_SCHEMA.LISTINGS   
+COPY INTO AIRBNB_DB.STAGING.LISTINGS   
 FROM
     @snowstage FILES =('listings.csv') CREDENTIALS =(
-        aws_key_id = '******',
-        aws_secret_key = '*****'
+        aws_key_id = '####',
+        aws_secret_key = '####'
         );
         
 -- SEE THE DATA IN TABLE
